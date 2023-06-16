@@ -23,9 +23,7 @@ public class Pipe {
         buidler.stream("intput_topic").to("output_topic");
 
         final Topology topology = buidler.build();
-
         final KafkaStreams streams = new KafkaStreams(topology, props);
-
         final CountDownLatch latch = new CountDownLatch(1);
 
         Runtime.getRuntime().addShutdownHook(new Thread("streams-shutdown-hook") {
